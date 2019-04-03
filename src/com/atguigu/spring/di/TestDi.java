@@ -41,4 +41,10 @@ public class TestDi {
         System.out.println(personMap);
     }
 
+    @Test
+    public void testFactoryBean() {
+        Car carFactoryBean = applicationContext.getBean("carFactoryBean", Car.class);
+        System.out.println(carFactoryBean);
+    }
+
 }
