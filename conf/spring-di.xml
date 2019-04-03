@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="car1" class="com.atguigu.spring.di.Car">
+        <property name="brand" value="大众"></property>
+        <property name="crop" value="一汽"></property>
+        <property name="price" value="10000"></property>
+    </bean>
+
+    <bean id="car2" class="com.atguigu.spring.di.Car">
+        <constructor-arg value="大众" index="0"></constructor-arg>
+        <constructor-arg value="10000" index="2" type="java.lang.Double"></constructor-arg>
+        <constructor-arg value="一汽" index="1"></constructor-arg>
+    </bean>
+
+    <bean id="car3" class="com.atguigu.spring.di.Car">
+        <constructor-arg value="大众" index="0"></constructor-arg>
+        <constructor-arg value="100" index="2" type="java.lang.Integer"></constructor-arg>
+        <constructor-arg value="一汽" index="1"></constructor-arg>
+    </bean>
+
+    <bean id="car4" class="com.atguigu.spring.di.Car" p:brand="大众" p:crop="一汽" p:price="100000"></bean>
+
+    <bean id="car5" class="com.atguigu.spring.di.Car">
+        <property name="brand">
+            <value><![CDATA[<大众>]]></value>
+        </property>
+    </bean>
+    //外部bean
+    <bean id="Person1" class="com.atguigu.spring.di.Person">
+        <property name="id" value="1001"></property>
+        <property name="name" value="HanMeiMei"></property>
+        <property name="car" ref="car1"></property>
+    </bean>
+    //内部bean
+    <bean id="Person2" class="com.atguigu.spring.di.Person">
+        <property name="id" value="1002"></property>
+        <property name="name" value="HanMeiMei"></property>
+        <property name="car">
+            <bean class="com.atguigu.spring.di.Car">
+                <property name="brand" value="大众"></property>
+            </bean>
+        </property>
+        <property name="car.price" value="123456"></property>
+    </bean>
+</beans>
