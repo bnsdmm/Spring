@@ -30,11 +30,15 @@ public class TestDi {
         Car car5 = applicationContext.getBean("car5", Car.class);
         Person person1 = applicationContext.getBean("Person1", Person.class);
         Person person2 = applicationContext.getBean("Person2", Person.class);
+        PersonList personList = applicationContext.getBean("PersonList", PersonList.class);
+        PersonMap personMap = applicationContext.getBean("PersonMap", PersonMap.class);
         System.out.println(car2);
         System.out.println(car3);
         System.out.println(car5);
         System.out.println(person1);
         System.out.println(person2);
+        System.out.println(personList);
+        System.out.println(personMap);
     }
 
 }

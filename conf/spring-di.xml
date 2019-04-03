@@ -28,13 +28,13 @@
             <value><![CDATA[<大众>]]></value>
         </property>
     </bean>
-    //外部bean
+    <!--    外部bean-->
     <bean id="Person1" class="com.atguigu.spring.di.Person">
         <property name="id" value="1001"></property>
         <property name="name" value="HanMeiMei"></property>
         <property name="car" ref="car1"></property>
     </bean>
-    //内部bean
+    <!--    //内部bean-->
     <bean id="Person2" class="com.atguigu.spring.di.Person">
         <property name="id" value="1002"></property>
         <property name="name" value="HanMeiMei"></property>
@@ -43,6 +43,30 @@
                 <property name="brand" value="大众"></property>
             </bean>
         </property>
+        <!--级联-->
         <property name="car.price" value="123456"></property>
+    </bean>
+
+    <bean id="PersonList" class="com.atguigu.spring.di.PersonList">
+        <property name="name" value="HanMeiMei"></property>
+        <property name="carList">
+            <list>
+                <ref bean="car1"></ref>
+                <ref bean="car2"></ref>
+                <ref bean="car3"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="PersonMap" class="com.atguigu.spring.di.PersonMap">
+        <property name="name" value="HanMeiMei"></property>
+        <property name="cars">
+            <map>
+                <entry key="aa" value-ref="car1"></entry>
+                <entry key="bb" value-ref="car2"></entry>
+                <entry key="cc" value-ref="car3"></entry>
+            </map>
+
+        </property>
     </bean>
 </beans>
