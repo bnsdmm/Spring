@@ -79,4 +79,13 @@
 
     <bean id="carFactoryBean" class="com.atguigu.spring.factorybean.CarFactoryBean"></bean>
 
+
+    <bean id="realtion1" abstract="true">
+        <property name="brand" value="大众"></property>
+        <property name="crop" value="一汽"></property>
+        <property name="price" value="10000"></property>
+    </bean>
+
+    <bean id="relation2" class="com.atguigu.spring.di.Car" parent="realtion1"></bean>
+
 </beans>

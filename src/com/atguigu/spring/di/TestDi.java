@@ -47,4 +47,10 @@ public class TestDi {
         System.out.println(carFactoryBean);
     }
 
+    @Test
+    public void testRelation() {
+        Car carRelation = applicationContext.getBean("relation2", Car.class);
+        System.out.println(carRelation);
+    }
+
 }
