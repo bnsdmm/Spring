@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car" class="com.atguigu.spring.autowire.Car">
+        <property name="name" value="大众"></property>
+        <property name="bread" value="一汽"></property>
+    </bean>
+    <bean id="address" class="com.atguigu.spring.autowire.Address">
+        <property name="city" value="吉林"></property>
+        <property name="province" value="吉林"></property>
+    </bean>
+    <!--
+    byName:使用bean的属性名与IOC容器中<bean>的id值进行匹配，匹配成功则装配成功。
+    byType:使用bean的属性的类型与IOC容器中<bean>的class进行匹配，如果唯一匹配则装配成功，如果匹配到多个兼容类型的bean，则跑出异常。
+    -->
+    <bean id="person" class="com.atguigu.spring.autowire.Person" autowire="byName">
+        <property name="name" value="HanMeiMei"></property>
+        <!--<property name="car" ref="car"></property>
+         <property name="address" ref="address"></property>-->
+    </bean>
+</beans>
