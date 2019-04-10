@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class UserController {
-    @Autowired
+    @Autowired(required = false)
     private UserService userService;
     public void regist(){
         userService.handleAddUser();
